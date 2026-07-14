@@ -32,9 +32,55 @@
 
 - macOS
 - Codex
+- Node.js 18+ 和 `npx`（推荐安装方式）
 - Python 3（隐藏目录审计使用）
 
-克隆到 Codex Skills 目录：
+### 使用 npx skills 安装（推荐）
+
+安装到 Codex 全局 Skills 目录：
+
+```bash
+npx skills add Voice-2026/clean-macos-disk -g -a codex
+```
+
+也可以先查看仓库中可安装的 Skill：
+
+```bash
+npx skills add Voice-2026/clean-macos-disk --list
+```
+
+省略 agent 和全局参数时，可以交互选择安装位置和目标 AI 工具：
+
+```bash
+npx skills add Voice-2026/clean-macos-disk
+```
+
+如果不希望发送匿名使用统计：
+
+```bash
+DISABLE_TELEMETRY=1 npx skills add Voice-2026/clean-macos-disk -g -a codex
+```
+
+管理已安装的 Skill：
+
+```bash
+# 查看
+npx skills ls -g -a codex
+
+# 更新
+npx skills update clean-macos-disk -g
+
+# 卸载
+npx skills remove clean-macos-disk -g -a codex
+```
+
+更多参数见 [`npx skills` 官方文档](https://www.skills.sh/docs/cli)。
+
+如果 `~/.codex/skills/clean-macos-disk` 已经由 Git clone 或手动复制创建，请先备份并移走旧目录，再交给 `npx skills` 管理，避免同名目录或符号链接冲突。
+
+### 手动安装
+
+也可以直接克隆到 Codex Skills 目录：
 
 ```bash
 git clone https://github.com/Voice-2026/clean-macos-disk.git \
@@ -43,7 +89,7 @@ git clone https://github.com/Voice-2026/clean-macos-disk.git \
 
 重启 Codex 或开始一个新任务后即可使用。
 
-更新 Skill：
+手动安装后的更新方式：
 
 ```bash
 git -C "${CODEX_HOME:-$HOME/.codex}/skills/clean-macos-disk" pull --ff-only
