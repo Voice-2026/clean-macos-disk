@@ -1,0 +1,4 @@
+interface:
+  display_name: "安全清理 Mac 磁盘"
+  short_description: "安全扫描 macOS 磁盘、隐藏目录与 AI 工具残留"
+  default_prompt: "Use $clean-macos-disk to audit my Mac, hidden home directories, and AI tool data, verify whether owners are still used, and wait for confirmation before deleting anything."
